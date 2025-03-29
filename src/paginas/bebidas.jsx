@@ -44,7 +44,6 @@ const Bebidas = () => {
   ];
 
   useEffect(() => {
-    // Al cargar el componente, intentamos cargar el pedido desde localStorage
     const pedidoGuardado = localStorage.getItem("pedido");
     if (pedidoGuardado) {
       setPedido(JSON.parse(pedidoGuardado));
@@ -60,7 +59,7 @@ const Bebidas = () => {
         );
       }
       const nuevoPedido = [...prevPedido, { ...item, cantidad: 1 }];
-      localStorage.setItem("pedido", JSON.stringify(nuevoPedido)); // Guardamos el pedido en localStorage
+      localStorage.setItem("pedido", JSON.stringify(nuevoPedido));
       return nuevoPedido;
     });
   };

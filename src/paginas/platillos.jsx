@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../img/logo.png";
 import "../styles/App.css";
 import PedidoActual from "../components/pedido";
@@ -8,7 +8,7 @@ const Platillos = () => {
 
   const menuPlatillos = [
     {
-      id: 1,
+      id: 4,
       nombre: "Tacos de asada",
       precio: 100,
       imagen:
@@ -16,7 +16,7 @@ const Platillos = () => {
       descripcion: "Orden con 6 tacos de asada con doble tortilla",
     },
     {
-      id: 2,
+      id: 5,
       nombre: "Burrito de Carne Asada",
       precio: 50,
       imagen: "https://museodeltaco.com/img/menu/spb_burrote_asada.png",
@@ -24,7 +24,7 @@ const Platillos = () => {
         "Burrito de tortilla de harina con carne asada (incluye aguacate, frijoles, verdura y salsa)",
     },
     {
-      id: 3,
+      id: 6,
       nombre: "Hamburguesa al carbon",
       precio: 55,
       imagen:
@@ -33,7 +33,7 @@ const Platillos = () => {
         "Nuestras hamburguesas estan hechas 100% carne de res(incluye tocino,jamon, doble queso, cebolla, tomate,lechuga y mayonesa",
     },
     {
-      id: 4,
+      id: 7,
       nombre: "Torta de pierna de cerdo",
       precio: 45,
       imagen: "https://tortaslacastellana.com/imagenes/menu/torta_pollo.png",
@@ -41,6 +41,12 @@ const Platillos = () => {
         "Deliciosa torta de pierna de cerdo asada, servida en un pan crujiente con jamón, tocino, doble queso, cebolla, tomate, lechuga y un toque de mayonesa para un sabor irresistible.",
     },
   ];
+  useEffect(() => {
+    const pedidoGuardado = localStorage.getItem("pedido");
+    if (pedidoGuardado) {
+      setPedido(JSON.parse(pedidoGuardado));
+    }
+  }, []);
 
   const agregarAlPedido = (item) => {
     setPedido((prevPedido) => {
@@ -50,7 +56,9 @@ const Platillos = () => {
           p.id === item.id ? { ...p, cantidad: p.cantidad + 1 } : p
         );
       }
-      return [...prevPedido, { ...item, cantidad: 1 }];
+      const nuevoPedido = [...prevPedido, { ...item, cantidad: 1 }];
+      localStorage.setItem("pedido", JSON.stringify(nuevoPedido));
+      return nuevoPedido;
     });
   };
 

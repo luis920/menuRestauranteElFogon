@@ -1,11 +1,13 @@
-import "../src/styles/App.css";
 import Platillos from "./components/platillos";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <Platillos />
-    </>
+    <div>
+      <Routes>
+        <Route path="/platillos" element={<Platillos />} />
+      </Routes>
+    </div>
   );
 }
 

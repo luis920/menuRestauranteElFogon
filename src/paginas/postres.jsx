@@ -1,44 +1,46 @@
 import React, { useState } from "react";
 import logo from "../img/logo.png";
 import "../styles/App.css";
-import PedidoActual from "./pedido";
+import PedidoActual from "../components/pedido";
 
-const Platillos = () => {
+const Bebidas = () => {
   const [pedido, setPedido] = useState([]);
 
-  const menuPlatillos = [
+  const menuPostres = [
     {
       id: 1,
-      nombre: "Tacos de asada",
-      precio: 100,
-      imagen:
-        "https://s3.amazonaws.com/static.realcaliforniamilk.com/media/recipes_2/carna-asada-street-tacos.jpg",
-      descripcion: "Orden con 6 tacos de asada con doble tortilla",
+      nombre: "Pay de queso",
+      precio: 45,
+      imagen: "https://puromaiz.mx/img/menu/sweets_cheesepie.png",
+      descripcion:
+        "Delicioso pay de queso con una base crujiente y un relleno cremoso y suave, con el equilibrio perfecto de dulzura y sabor.",
     },
     {
       id: 2,
-      nombre: "Burrito de Carne Asada",
-      precio: 50,
-      imagen: "https://museodeltaco.com/img/menu/spb_burrote_asada.png",
+      nombre: "vaso de nieve de nuez",
+      precio: 25,
+      imagen:
+        "https://static.vecteezy.com/system/resources/thumbnails/053/810/532/small_2x/butter-pecan-ice-cream-in-a-glass-sundae-dish-with-caramelized-pecans-and-a-drizzle-png.png",
       descripcion:
-        "Burrito de tortilla de harina con carne asada (incluye aguacate, frijoles, verdura y salsa)",
+        "Cremoso vaso de nieve de nuez, con trocitos de nuez crujiente y un delicioso sabor dulce y suave que se derrite en tu boca.",
     },
     {
       id: 3,
-      nombre: "Hamburguesa al carbon",
-      precio: 55,
+      nombre: "Brownnie de chocolate",
+      precio: 25,
       imagen:
-        "https://cuartodekilo.com/wp-content/uploads/2025/02/tocino_11zon.webp",
+        "https://carniceriadepueblo.com/wp-content/uploads/2024/04/Brownie-2.png",
       descripcion:
-        "Nuestras hamburguesas estan hechas 100% carne de res(incluye tocino,jamon, doble queso, cebolla, tomate,lechuga y mayonesa",
+        "Brownie de chocolate irresistible, con una textura suave y fudgy por dentro, ligeramente crujiente por fuera y un intenso sabor a cacao.",
     },
     {
       id: 4,
-      nombre: "Torta de pierna de cerdo",
-      precio: 45,
-      imagen: "https://tortaslacastellana.com/imagenes/menu/torta_pollo.png",
+      nombre: "Flan",
+      precio: 25,
+      imagen:
+        "https://elcajeton.com/wp-content/uploads/2023/04/cajeton-receta-flan.png",
       descripcion:
-        "Deliciosa torta de pierna de cerdo asada, servida en un pan crujiente con jamón, tocino, doble queso, cebolla, tomate, lechuga y un toque de mayonesa para un sabor irresistible.",
+        "Suave y cremoso flan, con una textura delicada que se derrite en el paladar, cubierto con un delicioso caramelo líquido que añade el toque perfecto de dulzura.",
     },
   ];
 
@@ -79,9 +81,9 @@ const Platillos = () => {
       <div>
         <img className="d-block mx-auto logo" src={logo} alt="" />
       </div>
-      <h1 className="text-center text-light">Platillos</h1>
+      <h1 className="text-center text-light">Bebidas</h1>
       <div className="grid gap-4">
-        {menuPlatillos.map((item) => (
+        {menuPostres.map((item) => (
           <div
             key={item.id}
             className="border p-4 rounded-lg d-flex flex-column align-items-center"
@@ -119,4 +121,4 @@ const Platillos = () => {
   );
 };
 
-export default Platillos;
+export default Bebidas;

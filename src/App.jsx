@@ -1,10 +1,10 @@
 import "../src/styles/App.css";
-import MenuDemo from "./components/menu";
+import Platillos from "./components/platillos";
 
 function App() {
   return (
     <>
-      <MenuDemo />
+      <Platillos />
     </>
   );
 }

@@ -3,7 +3,7 @@ import logo from "../img/logo.png";
 import "../styles/App.css";
 import PedidoActual from "./pedido";
 
-const MenuDemo = () => {
+const Bebidas = () => {
   const [pedido, setPedido] = useState([]);
 
   const menuItems = [
@@ -25,11 +25,20 @@ const MenuDemo = () => {
     },
     {
       id: 3,
-      nombre: "Agua de Horchata",
-      precio: 20,
+      nombre: "Hamburguesa al carbon",
+      precio: 55,
       imagen:
-        "https://png.pngtree.com/png-clipart/20240828/original/pngtree-horchata-isolated-on-transparent-background-png-image_15875019.png",
-      descripcion: "Vaso de agua de horchata de 500 ml",
+        "https://cuartodekilo.com/wp-content/uploads/2025/02/tocino_11zon.webp",
+      descripcion:
+        "Nuestras hamburguesas estan hechas 100% carne de res(incluye tocino,jamon, doble queso, cebolla, tomate,lechuga y mayonesa",
+    },
+    {
+      id: 4,
+      nombre: "Torta de pierna de cerdo",
+      precio: 45,
+      imagen: "https://tortaslacastellana.com/imagenes/menu/torta_pollo.png",
+      descripcion:
+        "Deliciosa torta de pierna de cerdo asada, servida en un pan crujiente con jamón, tocino, doble queso, cebolla, tomate, lechuga y un toque de mayonesa para un sabor irresistible.",
     },
   ];
 
@@ -70,6 +79,7 @@ const MenuDemo = () => {
       <div>
         <img className="d-block mx-auto logo" src={logo} alt="" />
       </div>
+      <h1 className="text-center text-light">Platillos</h1>
       <div className="grid gap-4">
         {menuItems.map((item) => (
           <div
@@ -109,4 +119,4 @@ const MenuDemo = () => {
   );
 };
 
-export default MenuDemo;
+export default Bebidas;

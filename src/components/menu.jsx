@@ -9,19 +9,23 @@ const MenuDemo = () => {
       id: 1,
       nombre: "Tacos al Pastor",
       precio: 30,
-      imagen: "https://via.placeholder.com/100",
+      imagen:
+        "https://s3.amazonaws.com/static.realcaliforniamilk.com/media/recipes_2/carna-asada-street-tacos.jpg",
+      descripcion: " orden con 6 tacos de asada",
     },
     {
       id: 2,
       nombre: "Burrito de Carne Asada",
       precio: 50,
       imagen: "https://via.placeholder.com/100",
+      descripcion: " orden con 6 tacos de asada",
     },
     {
       id: 3,
       nombre: "Agua de Horchata",
       precio: 20,
       imagen: "https://via.placeholder.com/100",
+      descripcion: " orden con 6 tacos de asada",
     },
   ];
 
@@ -58,7 +62,7 @@ const MenuDemo = () => {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto">
+    <div className="p-4 max-w-md mx-auto bg-black">
       <div>
         <img className="d-block mx-auto logo" src={logo} alt="" />
       </div>
@@ -66,16 +70,21 @@ const MenuDemo = () => {
         {menuItems.map((item) => (
           <div
             key={item.id}
-            className="border p-4 rounded-lg flex items-center"
+            className="border p-4 rounded-lg d-flex flex-column align-items-center"
           >
             <img
               src={item.imagen}
               alt={item.nombre}
-              className="w-16 h-16 mr-4"
+              className=" w-50 d-blck mx-auto"
             />
             <div>
-              <p className="font-semibold">{item.nombre}</p>
-              <p className="text-gray-500">${item.precio}</p>
+              <p className="font-semibold text-light text-center fs-3">
+                <strong>{item.nombre}</strong>
+              </p>
+              <p className="text-light text-center">{item.descripcion}</p>
+              <p className="text-gray-500 text-light text-center">
+                ${item.precio}
+              </p>
               <button
                 className="bg-blue-500 text-white px-2 py-1 rounded mt-2"
                 onClick={() => agregarAlPedido(item)}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../img/logo.png";
 import "../styles/App.css";
 import PedidoActual from "../components/pedido";
@@ -43,6 +43,14 @@ const Bebidas = () => {
     },
   ];
 
+  useEffect(() => {
+    // Al cargar el componente, intentamos cargar el pedido desde localStorage
+    const pedidoGuardado = localStorage.getItem("pedido");
+    if (pedidoGuardado) {
+      setPedido(JSON.parse(pedidoGuardado));
+    }
+  }, []);
+
   const agregarAlPedido = (item) => {
     setPedido((prevPedido) => {
       const existe = prevPedido.find((p) => p.id === item.id);
@@ -51,7 +59,9 @@ const Bebidas = () => {
           p.id === item.id ? { ...p, cantidad: p.cantidad + 1 } : p
         );
       }
-      return [...prevPedido, { ...item, cantidad: 1 }];
+      const nuevoPedido = [...prevPedido, { ...item, cantidad: 1 }];
+      localStorage.setItem("pedido", JSON.stringify(nuevoPedido)); // Guardamos el pedido en localStorage
+      return nuevoPedido;
     });
   };
 

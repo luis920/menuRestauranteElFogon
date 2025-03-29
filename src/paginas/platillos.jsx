@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
 import "../styles/App.css";
 import PedidoActual from "../components/pedido";
@@ -8,7 +9,7 @@ const Platillos = () => {
 
   const menuPlatillos = [
     {
-      id: 4,
+      id: 5,
       nombre: "Tacos de asada",
       precio: 100,
       imagen:
@@ -16,7 +17,7 @@ const Platillos = () => {
       descripcion: "Orden con 6 tacos de asada con doble tortilla",
     },
     {
-      id: 5,
+      id: 6,
       nombre: "Burrito de Carne Asada",
       precio: 50,
       imagen: "https://museodeltaco.com/img/menu/spb_burrote_asada.png",
@@ -24,7 +25,7 @@ const Platillos = () => {
         "Burrito de tortilla de harina con carne asada (incluye aguacate, frijoles, verdura y salsa)",
     },
     {
-      id: 6,
+      id: 7,
       nombre: "Hamburguesa al carbon",
       precio: 55,
       imagen:
@@ -33,7 +34,7 @@ const Platillos = () => {
         "Nuestras hamburguesas estan hechas 100% carne de res(incluye tocino,jamon, doble queso, cebolla, tomate,lechuga y mayonesa",
     },
     {
-      id: 7,
+      id: 8,
       nombre: "Torta de pierna de cerdo",
       precio: 45,
       imagen: "https://tortaslacastellana.com/imagenes/menu/torta_pollo.png",
@@ -105,7 +106,7 @@ const Platillos = () => {
               </p>
               <p className="text-light text-center">{item.descripcion}</p>
               <p className="text-gray-500 text-light text-center">
-                ${item.precio}
+                <strong>${item.precio}</strong>
               </p>
               <button
                 className="btn-add w-100"
@@ -117,12 +118,11 @@ const Platillos = () => {
           </div>
         ))}
       </div>
-
-      <PedidoActual
-        pedido={pedido}
-        calcularTotal={calcularTotal}
-        enviarPedidoWhatsApp={enviarPedidoWhatsApp}
-      />
+      <Link to={"/mipedido"}>
+        <button className="btn-sendOrder px-4 py-2 rounded mt-2 d-block mx-auto text-light">
+          Ver mi pedido
+        </button>
+      </Link>
     </div>
   );
 };

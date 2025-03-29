@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
 import "../styles/App.css";
-import PedidoActual from "../components/pedido";
 
 const Postres = () => {
   const [pedido, setPedido] = useState([]);
 
   const menuPostres = [
     {
-      id: 1,
+      id: 9,
       nombre: "Pay de queso",
       precio: 45,
       imagen: "https://puromaiz.mx/img/menu/sweets_cheesepie.png",
@@ -16,7 +16,7 @@ const Postres = () => {
         "Delicioso pay de queso con una base crujiente y un relleno cremoso y suave, con el equilibrio perfecto de dulzura y sabor.",
     },
     {
-      id: 2,
+      id: 10,
       nombre: "vaso de nieve de nuez",
       precio: 25,
       imagen:
@@ -25,7 +25,7 @@ const Postres = () => {
         "Cremoso vaso de nieve de nuez, con trocitos de nuez crujiente y un delicioso sabor dulce y suave que se derrite en tu boca.",
     },
     {
-      id: 3,
+      id: 11,
       nombre: "Brownnie de chocolate",
       precio: 25,
       imagen:
@@ -34,7 +34,7 @@ const Postres = () => {
         "Brownie de chocolate irresistible, con una textura suave y fudgy por dentro, ligeramente crujiente por fuera y un intenso sabor a cacao.",
     },
     {
-      id: 4,
+      id: 12,
       nombre: "Flan",
       precio: 25,
       imagen:
@@ -43,6 +43,12 @@ const Postres = () => {
         "Suave y cremoso flan, con una textura delicada que se derrite en el paladar, cubierto con un delicioso caramelo líquido que añade el toque perfecto de dulzura.",
     },
   ];
+  useEffect(() => {
+    const pedidoGuardado = localStorage.getItem("pedido");
+    if (pedidoGuardado) {
+      setPedido(JSON.parse(pedidoGuardado));
+    }
+  }, []);
 
   const agregarAlPedido = (item) => {
     setPedido((prevPedido) => {
@@ -52,7 +58,9 @@ const Postres = () => {
           p.id === item.id ? { ...p, cantidad: p.cantidad + 1 } : p
         );
       }
-      return [...prevPedido, { ...item, cantidad: 1 }];
+      const nuevoPedido = [...prevPedido, { ...item, cantidad: 1 }];
+      localStorage.setItem("pedido", JSON.stringify(nuevoPedido));
+      return nuevoPedido;
     });
   };
 
@@ -99,7 +107,7 @@ const Postres = () => {
               </p>
               <p className="text-light text-center">{item.descripcion}</p>
               <p className="text-gray-500 text-light text-center">
-                ${item.precio}
+                <strong>${item.precio}</strong>
               </p>
               <button
                 className="btn-add w-100"
@@ -111,12 +119,11 @@ const Postres = () => {
           </div>
         ))}
       </div>
-
-      <PedidoActual
-        pedido={pedido}
-        calcularTotal={calcularTotal}
-        enviarPedidoWhatsApp={enviarPedidoWhatsApp}
-      />
+      <Link to={"/mipedido"}>
+        <button className="btn-sendOrder px-4 py-2 rounded mt-2 d-block mx-auto text-light">
+          Ver mi pedido
+        </button>
+      </Link>
     </div>
   );
 };

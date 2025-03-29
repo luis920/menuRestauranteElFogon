@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
 import "../styles/App.css";
-import PedidoActual from "../components/pedido";
-
+import Swal from "sweetalert2";
 const Bebidas = () => {
   const [pedido, setPedido] = useState([]);
 
@@ -60,6 +60,15 @@ const Bebidas = () => {
       }
       const nuevoPedido = [...prevPedido, { ...item, cantidad: 1 }];
       localStorage.setItem("pedido", JSON.stringify(nuevoPedido));
+
+      // Swal.fire({
+      //   icon: "success",
+      //   title: "¡Producto agregado!",
+      //   text: `${item.nombre} ha sido agregado a tu pedido.`,
+      //   showConfirmButton: false,
+      //   timer: 1500,
+      // });
+
       return nuevoPedido;
     });
   };
@@ -107,7 +116,7 @@ const Bebidas = () => {
               </p>
               <p className="text-light text-center">{item.descripcion}</p>
               <p className="text-gray-500 text-light text-center">
-                ${item.precio}
+                <strong>${item.precio}</strong>
               </p>
               <button
                 className="btn-add w-100"
@@ -119,12 +128,19 @@ const Bebidas = () => {
           </div>
         ))}
       </div>
+      <Link to={"/mipedido"}>
+        <button className="btn-sendOrder px-4 py-2 rounded mt-2 d-block mx-auto text-light">
+          Ver mi pedido
+        </button>
+      </Link>
 
-      <PedidoActual
-        pedido={pedido}
-        calcularTotal={calcularTotal}
-        enviarPedidoWhatsApp={enviarPedidoWhatsApp}
-      />
+      {/* <div>
+        <PedidoActual
+          pedido={pedido}
+          calcularTotal={calcularTotal}
+          enviarPedidoWhatsApp={enviarPedidoWhatsApp}
+        />
+      </div> */}
     </div>
   );
 };

@@ -1,6 +1,15 @@
-import React from "react";
+const PedidoActual = ({
+  pedido,
+  calcularTotal,
+  enviarPedidoWhatsApp,
+  modificarCantidad,
+}) => {
+  if (!pedido || pedido.length === 0) {
+    return (
+      <p className="text-center text-light">No hay productos en el pedido.</p>
+    );
+  }
 
-const PedidoActual = ({ pedido, calcularTotal, enviarPedidoWhatsApp }) => {
   return (
     <div>
       <h3 className="text-xl font-bold mt-6 text-center text-light my-3">
@@ -8,8 +17,27 @@ const PedidoActual = ({ pedido, calcularTotal, enviarPedidoWhatsApp }) => {
       </h3>
       <ul className="mt-2 text-light">
         {pedido.map((item) => (
-          <li key={item.id}>
-            {item.nombre} x{item.cantidad}
+          <li
+            key={item.id}
+            className="d-flex justify-content-between align-items-center my-2"
+          >
+            <span>
+              {item.nombre} x{item.cantidad}
+            </span>
+            <div>
+              <button
+                className="btn btn-light mx-1"
+                onClick={() => modificarCantidad(item.id, -1)}
+              >
+                ➖
+              </button>
+              <button
+                className="btn btn-light mx-1"
+                onClick={() => modificarCantidad(item.id, 1)}
+              >
+                ➕
+              </button>
+            </div>
           </li>
         ))}
       </ul>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "../img/logo.png";
 import PedidoActual from "../components/pedido";
+import "../styles/App.css";
 
 const MiPedido = () => {
   const [pedido, setPedido] = useState([]);
@@ -48,7 +49,7 @@ const MiPedido = () => {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto bg-black">
+    <div className="p-4 max-w-md mx-auto bg-black vh-100">
       <div>
         <img className="d-block mx-auto logo" src={logo} alt="" />
       </div>

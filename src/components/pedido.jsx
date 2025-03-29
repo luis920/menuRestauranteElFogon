@@ -13,7 +13,7 @@ const PedidoActual = ({
   return (
     <div>
       <h3 className="text-xl font-bold mt-6 text-center text-light my-3">
-        Pedido Actual
+        Mi pedido
       </h3>
       <ul className="mt-2 text-light">
         {pedido.map((item) => (

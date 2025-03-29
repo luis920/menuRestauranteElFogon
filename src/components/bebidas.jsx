@@ -6,39 +6,40 @@ import PedidoActual from "./pedido";
 const Bebidas = () => {
   const [pedido, setPedido] = useState([]);
 
-  const menuItems = [
+  const menuBebidas = [
     {
       id: 1,
-      nombre: "Tacos de asada",
-      precio: 100,
+      nombre: "Agua de horchata",
+      precio: 35,
       imagen:
-        "https://s3.amazonaws.com/static.realcaliforniamilk.com/media/recipes_2/carna-asada-street-tacos.jpg",
-      descripcion: "Orden con 6 tacos de asada con doble tortilla",
+        "https://tofuu.getjusto.com/buckets-prod%2FewaaPT99adsvqsq7F-BEBIDASs.png",
+      descripcion:
+        "Refrescante agua de horchata elaborada con arroz, canela y un toque de vainilla, servida bien fría para disfrutar su dulzura y cremosidad en cada sorbo",
     },
     {
       id: 2,
-      nombre: "Burrito de Carne Asada",
-      precio: 50,
-      imagen: "https://museodeltaco.com/img/menu/spb_burrote_asada.png",
+      nombre: "Agua de Jamaica",
+      precio: 35,
+      imagen: "https://vips.com.mx/menu/img/platos/bebidas-agua-fresca.png",
       descripcion:
-        "Burrito de tortilla de harina con carne asada (incluye aguacate, frijoles, verdura y salsa)",
+        "Bebida natural de flor de jamaica con un equilibrio perfecto entre dulzura y acidez, servida bien fría para un toque refrescante y revitalizante.",
     },
     {
       id: 3,
-      nombre: "Hamburguesa al carbon",
-      precio: 55,
+      nombre: "Botella de agua",
+      precio: 20,
       imagen:
-        "https://cuartodekilo.com/wp-content/uploads/2025/02/tocino_11zon.webp",
+        "https://static.wixstatic.com/media/0ca6e2_7355c60ed1214e048ddbf99d7484ac5e~mv2.png/v1/crop/x_0,y_25,w_540,h_1094/fill/w_256,h_518,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0ca6e2_7355c60ed1214e048ddbf99d7484ac5e~mv2.png",
       descripcion:
-        "Nuestras hamburguesas estan hechas 100% carne de res(incluye tocino,jamon, doble queso, cebolla, tomate,lechuga y mayonesa",
+        "Agua purificada en botella, ideal para refrescarte e hidratarte en cualquier momento del día.",
     },
     {
       id: 4,
-      nombre: "Torta de pierna de cerdo",
-      precio: 45,
-      imagen: "https://tortaslacastellana.com/imagenes/menu/torta_pollo.png",
+      nombre: "Coca cola",
+      precio: 25,
+      imagen: "https://alsuper.online/products/455625_p.webp",
       descripcion:
-        "Deliciosa torta de pierna de cerdo asada, servida en un pan crujiente con jamón, tocino, doble queso, cebolla, tomate, lechuga y un toque de mayonesa para un sabor irresistible.",
+        "Refrescante botella de Coca-Cola, con su inconfundible sabor burbujeante y el balance perfecto de dulzura y frescura.",
     },
   ];
 
@@ -79,7 +80,7 @@ const Bebidas = () => {
       <div>
         <img className="d-block mx-auto logo" src={logo} alt="" />
       </div>
-      <h1 className="text-center text-light">Platillos</h1>
+      <h1 className="text-center text-light">Bebidas</h1>
       <div className="grid gap-4">
         {menuItems.map((item) => (
           <div

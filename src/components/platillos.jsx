@@ -6,7 +6,7 @@ import PedidoActual from "./pedido";
 const Platillos = () => {
   const [pedido, setPedido] = useState([]);
 
-  const menuItems = [
+  const menuPlatillos = [
     {
       id: 1,
       nombre: "Tacos de asada",
@@ -81,7 +81,7 @@ const Platillos = () => {
       </div>
       <h1 className="text-center text-light">Platillos</h1>
       <div className="grid gap-4">
-        {menuItems.map((item) => (
+        {menuPlatillos.map((item) => (
           <div
             key={item.id}
             className="border p-4 rounded-lg d-flex flex-column align-items-center"

@@ -1,6 +1,8 @@
-const pedido = () => {
+import React from "react";
+
+const PedidoActual = ({ pedido, calcularTotal, enviarPedidoWhatsApp }) => {
   return (
-    <>
+    <div>
       <h3 className="text-xl font-bold mt-6 text-center text-light my-3">
         Pedido Actual
       </h3>
@@ -15,13 +17,14 @@ const pedido = () => {
         Total: ${calcularTotal()}
       </h3>
       <button
-        className=" btn-sendOrder  px-4 py-2 rounded mt-2 d-block mx-auto text-light"
+        className="btn-sendOrder px-4 py-2 rounded mt-2 d-block mx-auto text-light"
         onClick={enviarPedidoWhatsApp}
         disabled={pedido.length === 0}
       >
         Enviar Pedido por WhatsApp
       </button>
-    </>
+    </div>
   );
 };
-export default pedido;
+
+export default PedidoActual;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../img/logo.png";
+import "../styles/App.css";
 
 const MenuDemo = () => {
   const [pedido, setPedido] = useState([]);
@@ -7,25 +8,27 @@ const MenuDemo = () => {
   const menuItems = [
     {
       id: 1,
-      nombre: "Tacos al Pastor",
-      precio: 30,
+      nombre: "Tacos de asada",
+      precio: 100,
       imagen:
         "https://s3.amazonaws.com/static.realcaliforniamilk.com/media/recipes_2/carna-asada-street-tacos.jpg",
-      descripcion: " orden con 6 tacos de asada",
+      descripcion: " orden con 6 tacos de asada con doble tortilla",
     },
     {
       id: 2,
       nombre: "Burrito de Carne Asada",
       precio: 50,
-      imagen: "https://via.placeholder.com/100",
-      descripcion: " orden con 6 tacos de asada",
+      imagen: "https://museodeltaco.com/img/menu/spb_burrote_asada.png",
+      descripcion:
+        " Burrito de tortilla de harina con carne asada(incluye aguacate,frijoles,verdura y salsa)",
     },
     {
       id: 3,
       nombre: "Agua de Horchata",
       precio: 20,
-      imagen: "https://via.placeholder.com/100",
-      descripcion: " orden con 6 tacos de asada",
+      imagen:
+        "https://png.pngtree.com/png-clipart/20240828/original/pngtree-horchata-isolated-on-transparent-background-png-image_15875019.png",
+      descripcion: "Vaso de agua de horchata de 500 ml",
     },
   ];
 
@@ -86,7 +89,7 @@ const MenuDemo = () => {
                 ${item.precio}
               </p>
               <button
-                className="bg-blue-500 text-white px-2 py-1 rounded mt-2"
+                className=" btn-add  w-100"
                 onClick={() => agregarAlPedido(item)}
               >
                 Agregar
@@ -95,17 +98,21 @@ const MenuDemo = () => {
           </div>
         ))}
       </div>
-      <h3 className="text-xl font-bold mt-6">Pedido Actual</h3>
-      <ul className="mt-2">
+      <h3 className="text-xl font-bold mt-6 text-center text-light my-3">
+        Pedido Actual
+      </h3>
+      <ul className="mt-2 text-light">
         {pedido.map((item) => (
           <li key={item.id}>
             {item.nombre} x{item.cantidad}
           </li>
         ))}
       </ul>
-      <h3 className="text-lg font-bold mt-4">Total: ${calcularTotal()}</h3>
+      <h3 className="text-lg font-bold mt-4 text-light text-center">
+        Total: ${calcularTotal()}
+      </h3>
       <button
-        className="bg-green-500 text-white px-4 py-2 rounded mt-2"
+        className=" btn-sendOrder  px-4 py-2 rounded mt-2 d-block mx-auto text-light"
         onClick={enviarPedidoWhatsApp}
         disabled={pedido.length === 0}
       >

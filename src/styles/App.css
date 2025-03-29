@@ -1,0 +1,11 @@
+.logo {
+  width: 15rem;
+  height: 12rem;
+}
+.btn-add {
+  background-color: rgb(14, 220, 110);
+  border-radius: 10px;
+}
+.btn-sendOrder {
+  background-color: rgb(9, 78, 228);
+}

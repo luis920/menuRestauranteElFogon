@@ -3,7 +3,7 @@ import logo from "../img/logo.png";
 import "../styles/App.css";
 import PedidoActual from "../components/pedido";
 
-const Bebidas = () => {
+const Postres = () => {
   const [pedido, setPedido] = useState([]);
 
   const menuPostres = [
@@ -121,4 +121,4 @@ const Bebidas = () => {
   );
 };
 
-export default Bebidas;
+export default Postres;

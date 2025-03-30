@@ -64,32 +64,12 @@ const Postres = () => {
     });
   };
 
-  const calcularTotal = () => {
-    return pedido.reduce(
-      (total, item) => total + item.precio * item.cantidad,
-      0
-    );
-  };
-
-  const enviarPedidoWhatsApp = () => {
-    const telefonoRestaurante = "528662785898";
-    const mensaje = encodeURIComponent(
-      `Hola, quiero hacer un pedido:\n` +
-        pedido.map((item) => `- ${item.nombre} x${item.cantidad}`).join("\n") +
-        `\nTotal: $${calcularTotal()}`
-    );
-    window.open(
-      `https://wa.me/${telefonoRestaurante}?text=${mensaje}`,
-      "_blank"
-    );
-  };
-
   return (
     <div className="p-4 max-w-md mx-auto bg-black">
       <div>
         <img className="d-block mx-auto logo" src={logo} alt="" />
       </div>
-      <h1 className="text-center text-light">Bebidas</h1>
+      <h1 className="text-center text-light">Postres</h1>
       <div className="grid gap-4">
         {menuPostres.map((item) => (
           <div
